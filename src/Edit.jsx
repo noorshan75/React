@@ -1,13 +1,12 @@
 
 import './App.css';
 import React, { useState,useEffect } from 'react';
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams} from "react-router-dom";
 import axios from "axios";
+
 function Edit() {
   let history=useHistory();
   const {id}=useParams();
-
-  
   const [myname,setMyname]=useState("");
   const [myemail,setMyemail]=useState("");
   const [myusername,setMyusername]=useState("");

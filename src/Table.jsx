@@ -11,16 +11,19 @@ const Table=()=>{
   },[]);
   const loadUser=async()=>{
     const result=await axios.get("http://localhost:3003/users");
-    
+    //http://localhost:3003/users/
     setUser(result.data);
   };
   const onDelete=async(id)=>{
      await axios.delete("http://localhost:3003/users/"+id);
+
  loadUser();
     
   };
 
-    return(<table className=" container table ">
+    return(
+<>
+<br/><table className=" container table ">
   <thead>
     <tr>
     <th scope="col">S.No</th>
@@ -38,9 +41,9 @@ const Table=()=>{
         <td>{user.name}</td>
         <td>{user.username}</td>
         <td>{user.email}</td>
-        <td> <Link className="btn btn-primary-light e" to={'/edit/'+user.id}>Edit</Link>
-             <Link className="btn btn-primary-light v" to={'/view/'+user.id}>View</Link>
-             <Link className="btn btn-primary-light d" onClick={()=>onDelete(user.id)}>Delete</Link>
+        <td> <Link className="btn btn-primary-light " to={'/view/'+user.id}>View</Link>
+             <Link className="btn btn-primary-light " to={'/edit/'+user.id}>Edit</Link>
+             <Link className="btn btn-primary-danger " onClick={()=>onDelete(user.id)}>Delete</Link>
              </td>
       </tr>
       ))
@@ -48,7 +51,8 @@ const Table=()=>{
     
    
   </tbody>
-</table>);
+</table>
+</>);
 }
 
 export default Table;

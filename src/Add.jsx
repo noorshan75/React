@@ -22,7 +22,7 @@ function Add() {
   const myUsername = (event) => {
     setUsername(event.target.value);
     
-   
+  
   };
   const myData = async(event) => {
     event.preventDefault();
